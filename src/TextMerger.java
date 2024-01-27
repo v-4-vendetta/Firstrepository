@@ -19,6 +19,19 @@ public class TextMerger {
         }
 
         System.out.println("Repeated characters text : " + result);
-
+        String text = result.toString();
+        String temp = "";
+        StringBuilder newText = new StringBuilder();
+        for (int i=0; i < text.length(); i++){
+            temp = newText.toString();
+            if (temp.isEmpty()) {
+                newText.append(text, i, 1);
+            }
+            else {
+                if (!temp.contains(text.substring(i, i + 1)))
+                    newText.append(text.charAt(i));
+            }
+        }
+        System.out.println("New text : " + newText);
     }
 }
